@@ -13,7 +13,8 @@ This is a useful python script to generate csv files to be used with RM.
 * Install mysql-python
 `pip install MySQL-python`
 * Run the following queries in your mysql database with any TABLENAME
-```create table TABLENAME (
+```
+create table TABLENAME (
 auth CHAR(10),
 username CHAR(50),
 password CHAR(50),
@@ -32,4 +33,4 @@ will create or overwrite a file to hamsters/accounts/accounts.csv with 4 lines f
 
 ## Special thanks
 
-Special thanks to joddie for helping :potato: with some python basics
+Joddie for helping :potato: with some python basics
