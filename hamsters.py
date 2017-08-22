@@ -42,5 +42,8 @@ def main():
     print("their last timestamp has been updated")
     db.close()
 
+    with open(FILENAME) as f:
+        print "".join(line for line in f if not line.isspace())
+
 if __name__ == "__main__":
     main()
