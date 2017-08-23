@@ -15,9 +15,9 @@ This is a useful python script to generate csv files to be used with RM.
 * Run the following queries in your mysql database with any TABLENAME
 ```
 create table TABLENAME (
-auth CHAR(10),
-username CHAR(50),
-password CHAR(50),
+auth VARCHAR(10),
+username VARCHAR(50) UNIQUE,
+password VARCHAR(50),
 last_timestamp TIMESTAMP
 ); 
 ```
