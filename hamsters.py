@@ -26,7 +26,7 @@ def main():
     args = parser.parse_args()
 
     QUERY = "SELECT auth,username,password FROM {} order by last_timestamp limit {};".format(args.table, args.workers)
-    UPDATEQUERY = "UPDATE {} set last_timestamp=now() order by last_timestamp limit 2".format(args.table, args.workers)
+    UPDATEQUERY = "UPDATE {} set last_timestamp=now() order by last_timestamp limit {}".format(args.table, args.workers)
     FILENAME = "{}".format(args.directory)
 
     db = connect_db(HOST, int(PORT), USER, PASSWD, NAME)
