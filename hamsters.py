@@ -1,19 +1,24 @@
 #!/usr/bin/env python
-import MySQLdb
 import csv
 import sys
 import configargparse
+try:
+    import pymysql
+    pymysql.install_as_MySQLdb()
+except ImportError:
+    pass
+
 
 HOST = "dbHost"
 USER = "dbUser"
 NAME = "dbName"
 PASSWD = "dbPassword"
-PORT = "dbPort"
+PORT = "dbPort""
 
 def connect_db(host, port, user, password, db):
     try:
-        return MySQLdb.connect(host=host, port=port, user=user, passwd=password, db=db)
-    except MySQLdb.Error, e:
+        return pymysql.connect(host=host, port=port, user=user, passwd=password, db=db)
+    except pymysql.Error, e:
         sys.stderr.write("[ERROR] % d: % s\n" % (e.args[0], e.args[1]))
         return False
 
@@ -30,7 +35,7 @@ def main():
     FILENAME = "{}".format(args.directory)
 
     db = connect_db(HOST, int(PORT), USER, PASSWD, NAME)
-    dump_writer = csv.writer(open(FILENAME, 'w'), delimiter=',', quotechar="'")
+    dump_writer = csv.writer(open(FILENAME, 'w'), delimiter=',', quotechar=" ")
     cur = db.cursor()
     cur.execute(QUERY)
     for row in cur.fetchall():
