@@ -13,7 +13,7 @@ HOST = "dbHost"
 USER = "dbUser"
 NAME = "dbName"
 PASSWD = "dbPassword"
-PORT = "dbPort""
+PORT = "dbPort"
 
 def connect_db(host, port, user, password, db):
     try:
@@ -35,7 +35,7 @@ def main():
     FILENAME = "{}".format(args.directory)
 
     db = connect_db(HOST, int(PORT), USER, PASSWD, NAME)
-    dump_writer = csv.writer(open(FILENAME, 'w'), delimiter=',', quotechar=" ")
+    dump_writer = csv.writer(open(FILENAME, 'w'), delimiter=',', quoting=csv.QUOTE_NONE)
     cur = db.cursor()
     cur.execute(QUERY)
     for row in cur.fetchall():
