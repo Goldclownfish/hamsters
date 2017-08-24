@@ -10,7 +10,7 @@ This is a useful python script to generate csv files to be used with RM.
 
 ## How to use
 
-* PyMysql should be along via RM; however, just incase:
+* PyMysql should be already installed along RM; however, just incase:
 `pip install pymysql`
 * Run the following queries in your mysql database with any TABLENAME
 ```
